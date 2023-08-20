@@ -24,13 +24,13 @@ AoC04 >> run: filename [
 		  (self solvePartTwo: namesAndIdsWithChecksums) }
 ]
 
-{ #category : #running }
+{ #category : #solving }
 AoC04 >> solvePartOne: namesAndIdsWithChecksums [
 
 	^ (self validRooms: namesAndIdsWithChecksums) sum: #second
 ]
 
-{ #category : #running }
+{ #category : #solving }
 AoC04 >> solvePartTwo: namesAndIdsWithChecksums [
 
 	| rotateFn |
@@ -51,7 +51,7 @@ AoC04 >> solvePartTwo: namesAndIdsWithChecksums [
 		   e first includesSubstring: 'north' ]) first second
 ]
 
-{ #category : #running }
+{ #category : #solving }
 AoC04 >> validRooms: namesAndIdsWithChecksums [
 
 	| checksumFn |

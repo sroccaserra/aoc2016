@@ -35,7 +35,7 @@ AoC03 >> run: filename [
 		  (self solvePartTwo: triangleSpecs) }
 ]
 
-{ #category : #running }
+{ #category : #solving }
 AoC03 >> solvePartOne: triangleSpecs [
 
 	^ triangleSpecs count: [ :spec |
@@ -44,7 +44,7 @@ AoC03 >> solvePartOne: triangleSpecs [
 				  (spec at: 2) + (spec at: 3) > (spec at: 1) ] ] ]
 ]
 
-{ #category : #running }
+{ #category : #solving }
 AoC03 >> solvePartTwo: triangleSpecs [
 
 	| nbRows nbColums flatSpecs result flatSpecsSize |
