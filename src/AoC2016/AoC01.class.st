@@ -21,7 +21,7 @@ AoC01 >> run: filename [
 		  self solvePartTwo }
 ]
 
-{ #category : #running }
+{ #category : #solving }
 AoC01 >> solvePartOne: commands [
 
 	| pos dir rotationMethods |
@@ -43,7 +43,7 @@ AoC01 >> solvePartOne: commands [
 	^ pos x abs + pos y abs
 ]
 
-{ #category : #running }
+{ #category : #solving }
 AoC01 >> solvePartTwo [
 
 	| seen |
