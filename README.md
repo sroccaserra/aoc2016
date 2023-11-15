@@ -11,4 +11,10 @@ See also:
 
 ## Links
 
+Advent of Code:
+
 - <https://adventofcode.com>
+
+Pharo Smalltalk:
+
+- <https://pharo.org/>
