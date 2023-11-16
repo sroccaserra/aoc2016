@@ -1,33 +1,6 @@
 import fileinput
 
 
-class Bot:
-    def __init__(self, n):
-        self.n = n
-        self.values = []
-
-    def append(self, number):
-        self.values.append(number)
-        assert(len(self.values) <= 2)
-
-    def low(self):
-        return min(self.values)
-
-    def high(self):
-        return max(self.values)
-
-    def has_two(self):
-        if(sorted(self.values) == [17, 61]):
-            print(self.n)
-        return len(self.values) == 2
-
-    def clear(self):
-        self.values = []
-
-    def __repr__(self):
-        return str((self.n, sorted(self.values)))
-
-
 def parse(words):
     word = words[0]
     if word =='value':
@@ -50,32 +23,31 @@ def solve(instructions):
 def apply(inst, bots, outs, next_insts):
     if 2 == len(inst):
         n = inst[1]
-        dst = bots.setdefault(n, Bot(n))
-        if not dst.has_two():
-            dst.append(inst[0])
-        else:
-            next_insts.append(inst)
-    elif 3 == len(inst):
+        dst = bots.setdefault(n,[])
+        dst.append(inst[0])
+    else:
         n = inst[0]
-        src = bots.setdefault(n, Bot(n))
-        if src.has_two():
+        src = bots.setdefault(n, [])
+        if 2 == len(src):
+            if(sorted(src) == [17, 61]):
+                print(n)
             low_dst_inst = inst[1]
             if low_dst_inst[0] == 'bot':
                 n_low = low_dst_inst[1]
-                low_dst = bots.setdefault(n_low, Bot(n_low))
+                low_dst = bots.setdefault(n_low, [])
             else:
                 low_dst = outs.setdefault(low_dst_inst[1], [])
-            low_dst.append(src.low())
+            low_dst.append(min(src))
 
             high_dst_inst = inst[2]
             n_high = high_dst_inst[1]
             if high_dst_inst[0] == 'bot':
-                high_dst = bots.setdefault(n_high, Bot(n_high))
+                high_dst = bots.setdefault(n_high, [])
             else:
                 high_dst = outs.setdefault(n_high, [])
-            high_dst.append(src.high())
+            high_dst.append(max(src))
 
-            src.clear()
+            bots[n] = []
         else:
             next_insts.append(inst)
 
