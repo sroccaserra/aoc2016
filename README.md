@@ -1,3 +1,9 @@
+Note: deprecated.
+
+See instead:
+
+- <https://github.com/sroccaserra/advent-of-code>
+
 Solving Advent of Code 2016 problems.
 
 See also:
